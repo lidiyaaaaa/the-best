@@ -927,7 +927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1013323642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2407,19 +2407,15 @@ PrefabInstance:
       propertyPath: minAngle
       value: -30
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1002691345982042696, guid: 1c36bc9b29719f24687c52d1797bc635,
         type: 3}
       propertyPath: speed
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1002691345982042696, guid: 1c36bc9b29719f24687c52d1797bc635,
         type: 3}
       propertyPath: jumpForce
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1078229808441694211, guid: 1c36bc9b29719f24687c52d1797bc635,
         type: 3}
@@ -2455,22 +2451,22 @@ PrefabInstance:
         type: 3}
       propertyPath: grenadePrefab
       value: 
-      objectReference: {fileID: -2146284066596151724, guid: 42d1c1dab5c2d614a8e904dd8abc51b9,
+      objectReference: {fileID: -3591419865644735714, guid: 42d1c1dab5c2d614a8e904dd8abc51b9,
         type: 3}
     - target: {fileID: 4954371645377383197, guid: 1c36bc9b29719f24687c52d1797bc635,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.707
+      value: 0.461
       objectReference: {fileID: 0}
     - target: {fileID: 4954371645377383197, guid: 1c36bc9b29719f24687c52d1797bc635,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.408
+      value: 1.373
       objectReference: {fileID: 0}
     - target: {fileID: 4954371645377383197, guid: 1c36bc9b29719f24687c52d1797bc635,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0134
+      value: -0.198
       objectReference: {fileID: 0}
     - target: {fileID: 6365698964421811314, guid: 1c36bc9b29719f24687c52d1797bc635,
         type: 3}

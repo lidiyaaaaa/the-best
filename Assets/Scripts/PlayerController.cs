@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public float speed;
 
+    public Animator animator;
+
     private float _fallVelocity = 0;
     private Vector3 _moveVector;
 
@@ -17,35 +19,50 @@ public class PlayerController : MonoBehaviour
     {
         _characterController = GetComponent<CharacterController>();
     }
-
     void Update()
     {
+        MoveventUpdate();
+        JumpUpdate();
+    }
+
+    private void MoveventUpdate()
+    {
         _moveVector = Vector3.zero;
-
-        if (Input.GetKey(KeyCode.W)){
+        var runDirection = 0;
+        
+        if (Input.GetKey(KeyCode.W))
+        {
             _moveVector += transform.forward;
+            runDirection = 1;
         }
 
-        if (Input.GetKey(KeyCode.S)){
+        if (Input.GetKey(KeyCode.S))
+        {
             _moveVector -= transform.forward;
+            runDirection = 2;
         }
-
-        if (Input.GetKey(KeyCode.D)){
+        if (Input.GetKey(KeyCode.D))
+        {
             _moveVector += transform.right;
+            runDirection = 3;
         }
 
         if (Input.GetKey(KeyCode.A))
         {
             _moveVector -= transform.right;
+            runDirection = 4;
         }
 
-
+        animator.SetInteger("Run Direction", runDirection);
+    }
+    private void JumpUpdate()
+    {
         if (Input.GetKeyDown(KeyCode.Space) && _characterController.isGrounded)
         {
             _fallVelocity = -jumpForce;
+            //animator.SetBool("jump", true);
         }
     }
-
     void FixedUpdate()
     {
         _characterController.Move(_moveVector * speed * Time.fixedDeltaTime);
