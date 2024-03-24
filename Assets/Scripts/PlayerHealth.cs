@@ -11,11 +11,14 @@ public class PlayerHealth : MonoBehaviour
     public GameObject gameOverScreen;
 
     private float _maxValue;
+
+
     private void Start()
     {
         _maxValue = value;
         DrawHealthBar();
     }
+
 
     public void DealDamage(float damage)
     {
@@ -24,14 +27,23 @@ public class PlayerHealth : MonoBehaviour
         {
             PlayerIsDead();
         }
-
         DrawHealthBar();
     }
+
 
     private void DrawHealthBar()
     {
         valueRectTransform.anchorMax = new Vector2(value / _maxValue, 1);
     }
+
+
+    public void AddHealth(float amount)
+    {
+        value+= amount;
+        value = Mathf.Clamp(value, 0, _maxValue);
+        DrawHealthBar();
+    }
+
 
     private void PlayerIsDead()
     {
