@@ -20,6 +20,10 @@ public class PlayerHealth : MonoBehaviour
         DrawHealthBar();
     }
 
+    public bool IsAlive()
+    {
+        return value > 0;
+    }
 
     public void DealDamage(float damage)
     {
