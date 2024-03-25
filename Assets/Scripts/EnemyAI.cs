@@ -41,7 +41,6 @@ public class EnemyAI : MonoBehaviour
             if (_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
             {
                 animator.SetTrigger("attack");
-                playerAnimator.SetTrigger("attack");
             }
         }
     }
@@ -52,6 +51,8 @@ public class EnemyAI : MonoBehaviour
         if (_navMeshAgent.remainingDistance > (_navMeshAgent.stoppingDistance + attackDistance)) return;
 
         _playerHealth.DealDamage(damage);
+
+        playerAnimator.SetTrigger("attack");
     }
 
     private void NoticePlayerUpdate()
