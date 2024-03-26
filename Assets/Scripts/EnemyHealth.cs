@@ -19,7 +19,7 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    private void EnemyDeath()
+    public void EnemyDeath()
     {
         animator.SetTrigger("death");
         GetComponent<EnemyAI>().enabled = false;

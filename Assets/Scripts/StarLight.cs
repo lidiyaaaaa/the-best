@@ -1,16 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 
 public class StarLight : MonoBehaviour
 {
     public Light star;
+
     public GameObject PobedaScreen;
     public GameObject gameplayUI;
-    public GameObject Player;
-    public Animator animator;
 
+    public GameObject Player;
+    public Animator playerAnimator;
+
+    public GameObject enemy;
+    private EnemyHealth _enemyHealth;
+        
     private bool rezult = false;
+
+    private void Start()
+    {
+        _enemyHealth = enemy.GetComponent<EnemyHealth>();
+
+    }
     private void OnTriggerEnter(Collider other)
     {
         var playerHealth = other.gameObject.GetComponent<PlayerHealth>();
@@ -36,8 +48,11 @@ public class StarLight : MonoBehaviour
             gameplayUI.SetActive(false);
             Player.GetComponent<PlayerController>().enabled = false;
             Player.GetComponent<FireballCaster>().enabled = false;
+            Player.GetComponent<GrenadeCaster>().enabled = false;
             Player.GetComponent<CameraRotation>().enabled = false;
-            animator.SetTrigger("pobeda");
+            playerAnimator.SetTrigger("pobeda");
+
+            _enemyHealth.EnemyDeath();
         }
     }
 }
