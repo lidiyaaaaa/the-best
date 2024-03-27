@@ -19,11 +19,12 @@ public class Nachalo : MonoBehaviour
         player.GetComponent<GrenadeCaster>().enabled = false;
         enemy.GetComponent<EnemyAI>().enabled = false;
         gameplayUI.SetActive(false);
-        Invoke("off", 9);
+        Invoke("off", 8);
     }
 
     private void off()
     {
+        player.GetComponent<PlayerHealth>().enabled = true;
         player.GetComponent<PlayerController>().enabled = true;
         player.GetComponent<FireballCaster>().enabled = true;
         player.GetComponent<CameraRotation>().enabled = true;

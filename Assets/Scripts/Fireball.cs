@@ -31,6 +31,12 @@ public class Fireball : MonoBehaviour
         {
             enemyHealth.DealDamage(damage);
         }
+        
+        var wall = collision.gameObject.GetComponent<GlassWall>();
+        if (wall != null)
+        {
+            wall.DealDamage(damage);
+        }
 
     }
 }

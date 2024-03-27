@@ -7,6 +7,9 @@ public class PlayerHealth : MonoBehaviour
     public float value = 100;
     public RectTransform valueRectTransform;
 
+    public GameObject star;
+    private StarLight _star;
+
     public GameObject gameplayUI;
     public GameObject gameOverScreen;
     public Animator animator;
@@ -16,6 +19,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
+        _star = star.GetComponent<StarLight>();
         _maxValue = value;
         DrawHealthBar();
     }
@@ -44,7 +48,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void AddHealth(float amount)
     {
-        value+= amount;
+        value += amount;
         value = Mathf.Clamp(value, 0, _maxValue);
         DrawHealthBar();
     }
@@ -52,12 +56,11 @@ public class PlayerHealth : MonoBehaviour
 
     private void PlayerIsDead()
     {
+        animator.SetTrigger("death");
+
         gameplayUI.SetActive(false);
         gameOverScreen.SetActive(true);
         gameOverScreen.GetComponent<Animator>().SetTrigger("show");
-
-
-        animator.SetTrigger("death");
 
         GetComponent<PlayerController>().enabled = false;
         GetComponent<FireballCaster>().enabled = false;

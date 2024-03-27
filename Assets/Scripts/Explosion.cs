@@ -36,5 +36,11 @@ public class Explosion : MonoBehaviour
         {
             enemyHealth.DealDamage(damage);
         }
+
+        var wall = other.GetComponent<GlassWall>();
+        if (wall != null)
+        {
+            wall.DealDamage(damage);
+        }
     }
 }

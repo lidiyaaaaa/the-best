@@ -26,6 +26,13 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
+        if (_navMeshAgent.velocity.sqrMagnitude > 0)
+        {
+            animator.SetBool("run", true);
+        }
+        else {
+            animator.SetBool("run", false);
+        }
         NoticePlayerUpdate();
         ChaseUpdate();
         AttackUpdate();
@@ -78,6 +85,7 @@ public class EnemyAI : MonoBehaviour
 
     private void PatrolUpdate()
     {
+        if (patrolPoints.Count == 0) return;
         if(!_isPlayerNoticed)
         {
             if (_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
@@ -89,6 +97,7 @@ public class EnemyAI : MonoBehaviour
 
     private void PickNewPatrolPoint()
     {
+        if (patrolPoints.Count == 0) return;
         _navMeshAgent.destination = patrolPoints[Random.Range(0, patrolPoints.Count)].position;
     }
 
