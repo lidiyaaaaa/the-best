@@ -37,14 +37,9 @@ public class StarLight : MonoBehaviour
         {
             star.intensity += 10 * Time.deltaTime;
         }
-        if (star.intensity >=10) Pobeda();
+        if (star.intensity >= 10) Pobeda();
     }
 
-    public bool Proverka()
-    {
-        return star.intensity > 0;
-
-    }
     private void Pobeda()
     {
         Player.GetComponent<PlayerHealth>().enabled = false;
@@ -56,7 +51,6 @@ public class StarLight : MonoBehaviour
         Player.GetComponent<CameraRotation>().enabled = false;
         playerAnimator.SetTrigger("pobeda");
 
-        _enemyHealth.EnemyDeath();
 
     }
 }
